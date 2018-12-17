@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <h1 class="post-title">{{ .Title }}</h1>
+  <div class="related">
+    <ul class="related-posts">
+      {{ range .Paginator.Pages }}
+        <li>
+          <h3>
+            <a href="{{ .RelPermalink }}">
+              {{ .Title }}
+              <small>{{ .Site.Params.DateFormat | default (i18n "dateFormat") | .Date.Format }}</small>
+            </a>
+          </h3>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ partial "pagination.html" . }}
+{{ end }}

@@ -1,0 +1,12 @@
+<div class="pagination">
+  {{ if .Paginator.HasPrev }}
+    <a class="pagination-item newer" href="{{ .Paginator.Prev.URL }}">{{ i18n "prev" }}</a>
+  {{ else }}
+    <span class="pagination-item newer">{{ i18n "prev" }}</span>
+  {{ end }}
+  {{ if .Paginator.HasNext }}
+    <a class="pagination-item older" href="{{ .Paginator.Next.URL }}">{{ i18n "next" }}</a>
+  {{ else }}
+    <span class="pagination-item older">{{ i18n "next" }}</span>
+  {{ end }}
+</div>

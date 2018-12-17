@@ -1,0 +1,41 @@
+theme = "Lanyon"
+baseURL = "https://blog.bohan.co/"
+defaultContentLanguage = "zh-hans"
+hasCJKLanguage = true
+pygmentsUseClasses = true
+title = "Freespace"
+keywords = ["brentybh", "Blog"]
+copyright = "Brent."
+tagline = "Just so so..."
+description = "Freespace. Just so so..."
+
+[permalinks]
+posts = "/:year/:month/:day/:filename/"
+
+[params]
+titleSeparator = " - "
+googleFonts = "https://fonts.loli.net/css"
+
+[languages]
+
+[languages.zh-Hans]
+
+languageName = "中文(简体)"
+
+[languages.zh-Hans.menu]
+
+[[languages.zh-Hans.menu.main]]
+name = "English"
+url  = "/en/"
+weight = 4
+
+[languages.en]
+
+languageName = "English"
+
+[languages.en.menu]
+
+[[languages.en.menu.main]]
+name = "中文(简体)"
+url  = "/"
+weight = 4

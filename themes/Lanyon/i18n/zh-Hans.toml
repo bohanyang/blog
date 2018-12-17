@@ -1,0 +1,44 @@
+[404_0]
+other = "无法找到该网页"
+
+[404_1]
+other = "非常抱歉，您正请求的页面并不存在。它可能已被删除并不再可用。请尝试"
+
+[404_2]
+other = "返回主页"
+
+[404_3]
+other = "以查找您所需的信息。"
+
+[dateFormat]
+other = "2006/1/2"
+
+[continue]
+other = "继续阅读……"
+
+[next]
+other = "下一页"
+
+[prev]
+other = "上一页"
+
+[related]
+other = "相关博文"
+
+[message1]
+other = "本文长度大约 "
+
+[message2]
+other = "。估计需要 "
+
+[message3]
+other = "。"
+
+[wordCount]
+other = "{{ .Count }} 字"
+
+[readingTime]
+other = "{{ .Count }} 分钟阅读"
+
+[translations]
+other = "其他语言版本"

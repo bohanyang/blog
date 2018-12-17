@@ -1,0 +1,54 @@
+{{ define "main" }}
+  <div class="post">
+    <h1 class="post-title">{{ .Title }}</h1>
+    <span class="post-date">{{ .Site.Params.DateFormat | default (i18n "dateFormat") | .Date.Format }}</span>
+    <div class="message">
+      {{ i18n "message1" }}{{ i18n "wordCount" .WordCount }}{{ i18n "message2" }}{{ i18n "readingTime" .ReadingTime }}{{ i18n "message3" }}
+    </div>
+    {{ .Content }}
+  </div>
+  {{ if .IsTranslated }}
+  <div class="related">
+    <h2>{{ i18n "translations" }}</h2>
+    <ul class="related-posts">
+      {{ range .Translations }}
+        <li>
+          <h3>
+            <a href="{{ .RelPermalink }}">
+              {{ .Title }}
+              <small>{{ .Language.LanguageName }}</small>
+            </a>
+          </h3>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+  {{ $scratch := newScratch }}
+  {{ $link := .RelPermalink }}
+  {{ $tags := .Params.Tags }}
+  {{ range .Site.Pages }}
+    {{ $page := . }}
+    {{ $common := intersect $tags .Params.Tags | len | lt 0 }}
+    {{ if and $common (ne $link $page.RelPermalink) }}
+      {{ $scratch.Add "related" (slice $page) }}
+    {{ end }}
+  {{ end }}
+  {{ if $scratch.Get "related" }}
+    <div class="related">
+      <h2>{{ i18n "related" }}</h2>
+      <ul class="related-posts">
+        {{ range $scratch.Get "related" }}
+          <li>
+            <h3>
+              <a href="{{ .RelPermalink }}">
+                {{ .Title }}
+                <small>{{ .Site.Params.DateFormat | default (i18n "dateFormat") | .Date.Format }}</small>
+              </a>
+            </h3>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  {{ end }}
+{{ end }}

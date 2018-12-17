@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{{ if .Site.Params.UseLanguageCode -}}
+  <html{{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
+{{- else -}}
+  <html lang="{{ .Site.Language.Lang }}">
+{{- end }}
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>
+      {{- if not .IsHome -}}
+        {{ .Title }}{{ .Site.Params.TitleSeparator | default " &middot; " | safeHTML }}
+      {{- end -}}
+      {{ .Site.Title -}}
+    </title>
+    {{ if .IsHome }}
+      {{ with .Site.Params.Description }}<meta name="description" content="{{ . }}">{{ end }}
+      {{ with .Site.Params.Keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+    {{ else }}
+      {{ with (.Description | default .Summary) }}<meta name="description" content="{{ . }}">{{ end }}
+      {{ with (.Keywords | default .Params.Tags) }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+    {{ end }}
+    <link rel="stylesheet" href="{{ relURL "assets/css/poole.css" }}">
+    <link rel="stylesheet" href="{{ relURL "assets/css/lanyon.css" }}">
+    <link rel="stylesheet" href="{{ relURL "assets/css/syntax.css" }}">
+    <link rel="stylesheet" href="{{ .Site.Params.GoogleFonts | default "https://fonts.googleapis.com/css" }}?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ relURL "assets/apple-touch-icon-precomposed.png" }}">
+    <link rel="shortcut icon" href="{{ relURL "assets/favicon.ico" }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ relURL "index.xml" }}">
+    {{ with .Site.Params.Custom.Head }}{{ . | safeHTML }}{{ end }}
+  </head>
+  <body{{ with (.Params.Color | default .Site.Params.Color) }} class="theme-base-{{ . }}"{{ end }}>
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p>{{ .Site.Params.Description }}</p>
+      </div>
+      <nav class="sidebar-nav">
+        {{ $currentPage := . }}
+        {{ range index .Site.Menus "main" }}
+          {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+            <span class="sidebar-nav-item active">{{ .Name }}</span>
+          {{ else }}
+            <a class="sidebar-nav-item" href="{{ .URL }}">{{ .Name }}</a>
+          {{ end }}
+        {{ end }}
+      </nav>
+      <div class="sidebar-item">
+        <p>&copy; {{ .Site.LastChange.Year }} {{ .Site.Copyright | default (printf "%s%s" .Site.Title ".") }}</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="{{ relLangURL "/" }}" title="{{ i18n "home" }}">{{ .Site.Title }}</a>
+            <small>{{ .Site.Params.Tagline }}</small>
+          </h3>
+        </div>
+      </div>
+      <div class="container content">
+        {{ block "main" . }}{{ end }}
+      </div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <script src="{{ relURL "assets/js/checkbox.js" }}"></script>
+    {{ with .Site.Params.Custom.Foot }}{{ . | safeHTML }}{{ end }}
+  </body>
+</html>

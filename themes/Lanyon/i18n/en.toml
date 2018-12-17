@@ -1,0 +1,46 @@
+[404_0]
+other = "Page Not Found"
+
+[404_1]
+other = "Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. "
+
+[404_2]
+other = "Head back home"
+
+[404_3]
+other = " to try finding it again."
+
+[dateFormat]
+other = "Jan 2, 2006"
+
+[continue]
+other = "Read more..."
+
+[next]
+other = "Next"
+
+[prev]
+other = "Previous"
+
+[related]
+other = "Related Posts"
+
+[message1]
+other = "The following content has "
+
+[message2]
+other = ". It may take "
+
+[message3]
+other = " to finish reading."
+
+[wordCount]
+one = "only {{ .Count }} word"
+other = "about {{ .Count }} words"
+
+[readingTime]
+one = "less than a minute"
+other = "about {{ .Count }} minutes"
+
+[translations]
+other = "In Other Languages"
