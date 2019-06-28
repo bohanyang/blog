@@ -1,0 +1,12 @@
+version: 0.2
+frontend:
+  phases:
+    build:
+      commands:
+        - hugo --gc --minify
+  artifacts:
+    baseDirectory: public
+    files:
+      - '**/*'
+  cache:
+    paths: []
