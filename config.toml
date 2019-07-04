@@ -14,7 +14,7 @@ posts = "/:year/:month/:day/:filename/"
 
 [params]
 titleSeparator = " - "
-googleFonts = "https://fonts.loli.net/css"
+googleFonts = "https://ppa.penbeat.cn/css"
 
 [languages]
 
