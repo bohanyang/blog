@@ -13,5 +13,9 @@ frontend:
       headers:
         - key: 'Strict-Transport-Security'
           value: 'max-age=31536000; includeSubDomains'
+    - pattern: 'assets/**/*'
+      headers:
+        - key: 'Cache-Control'
+          value: 'max-age=604800'
   cache:
     paths: []
