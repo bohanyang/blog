@@ -1,0 +1,16 @@
+{{ if .jsDelivr }}
+    {{ $len := len $.files }}
+    {{ if eq $len 1 }}
+        <script src="https://cdn.jsdelivr.net/{{ $.jsDelivr }}{{ index $.files 0 }}.min.js"></script>
+    {{ else if gt $len 1 }}
+        {{ $files := slice }}
+        {{ range $file := $.files }}
+            {{ $files = $files | append (print $.jsDelivr $file ".min.js") }}
+        {{ end }}
+        <script src="https://cdn.jsdelivr.net/combine/{{ delimit $files "," }}"></script>
+    {{ end }}
+{{ else }}
+    {{ range $file := $.files }}
+        <script src="{{ with $.assetsCdn }}{{ . }}{{ end }}{{ relURL $file }}.js"></script>
+    {{ end }}
+{{ end }}

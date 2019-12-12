@@ -15,7 +15,6 @@ posts = "/:year/:month/:day/:filename/"
 [params]
 titleSeparator = " - "
 googleFonts = "https://fonts.loli.net/css"
-jsDelivr = "gh/brentybh/blog.bohan.co@1b2e3a6a17bf77514bebcea06311836a37a9f559/themes/Lanyon/static/"
 
 [languages]
 

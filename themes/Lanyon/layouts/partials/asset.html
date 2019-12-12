@@ -1,0 +1,5 @@
+{{ if .jsDelivr -}}
+    https://cdn.jsdelivr.net/{{ $.jsDelivr }}{{ $.file }}
+{{- else -}}
+    {{ with $.assetsCdn }}{{ . }}{{ end }}{{ relURL $.file }}
+{{- end -}}
