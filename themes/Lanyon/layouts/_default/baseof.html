@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{{ if .Site.Params.useLanguageCode -}}
+{{ if .Site.Params.UseLanguageCode -}}
   <html{{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
 {{- else -}}
   <html lang="{{ .Site.Language.Lang }}">
@@ -13,21 +13,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>
       {{- if not .IsHome -}}
-        {{ .Title }}{{ .Site.Params.titleSeparator | default " &middot; " | safeHTML }}
+        {{ .Title }}{{ .Site.Params.TitleSeparator | default " &middot; " | safeHTML }}
       {{- end -}}
       {{ .Site.Title -}}
     </title>
     {{ if .IsHome }}
-      {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
-      {{ with .Site.Params.keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+      {{ with .Site.Params.Description }}<meta name="description" content="{{ . }}">{{ end }}
+      {{ with .Site.Params.Keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
     {{ else }}
       {{ with (.Description | default .Summary) }}<meta name="description" content="{{ . }}">{{ end }}
       {{ with (.Keywords | default .Params.Tags) }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
     {{ end }}
     
-    {{ partialCached "css.html" (dict "files" (slice "assets/css/poole" "assets/css/lanyon" "assets/css/syntax") "assetsCdn" (.Site.Params.assetsCdn) "jsDelivr" (.Site.Params.jsDelivr)) }}
+    {{ partialCached "css.html" (dict "files" (slice "assets/css/poole" "assets/css/lanyon" "assets/css/syntax") "assetsCdn" (.Site.Params.assetsCDN) "jsDelivr" (.Site.Params.jsDelivr)) }}
 
-    <link rel="stylesheet" href="{{ .Site.Params.googleFonts | default "https://fonts.googleapis.com/css" }}?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="{{ .Site.Params.GoogleFonts | default "https://fonts.googleapis.com/css" }}?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
     {{/*
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ relURL "assets/apple-touch-icon-precomposed.png" }}">
@@ -38,13 +38,12 @@
     <link rel="shortcut icon" href="{{ partial "asset.html" (dict "file" "assets/favicon.ico" "assetsCdn" (.Site.Params.assetsCdn) "jsDelivr" (.Site.Params.jsDelivr)) }}">
     
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ relURL "index.xml" }}">
-    {{ with .Site.Params.custom.head }}{{ . | safeHTML }}{{ end }}
   </head>
-  <body{{ with (.Params.Color | default .Site.Params.color) }} class="theme-base-{{ . }}"{{ end }}>
+  <body{{ with (.Params.Color | default .Site.Params.Color) }} class="theme-base-{{ . }}"{{ end }}>
     <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
     <div class="sidebar" id="sidebar">
       <div class="sidebar-item">
-        <p>{{ .Site.Params.description }}</p>
+        <p>{{ .Site.Params.Description }}</p>
       </div>
       <nav class="sidebar-nav">
         {{ $currentPage := . }}
@@ -65,18 +64,17 @@
         <div class="container">
           <h3 class="masthead-title">
             <a href="{{ relLangURL "/" }}" title="{{ i18n "home" }}">{{ .Site.Title }}</a>
-            <small>{{ .Site.Params.tagline }}</small>
+            <small>{{ .Site.Params.Tagline }}</small>
           </h3>
         </div>
       </div>
       <div class="container content">
         {{ block "main" . }}{{ end }}
+        {{ with .Site.Params.ICPLicense }}<div class="pagination"><a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow">{{ . | safeHTML }}</a></div>{{ end }}
       </div>
     </div>
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
     {{ partialCached "js.html" (dict "files" (slice "assets/js/checkbox") "assetsCdn" (.Site.Params.assetsCdn) "jsDelivr" (.Site.Params.jsDelivr)) }}
-
-    {{ with .Site.Params.custom.foot }}{{ . | safeHTML }}{{ end }}
   </body>
 </html>

@@ -1,29 +1,30 @@
 theme = "Lanyon"
-baseURL = "https://blog.bohan.co/"
+baseURL = "https://bohan.co/"
 defaultContentLanguage = "zh-hans"
 hasCJKLanguage = true
 pygmentsUseClasses = true
-title = "Freespace"
-keywords = ["brentybh", "Blog"]
-copyright = "Brent."
-tagline = "Just so so..."
-description = "Freespace. Just so so..."
 
 [permalinks]
 posts = "/:year/:month/:day/:filename/"
 
 [params]
+description = "Modern PHP Developer | Debian VPS Player | Docker Image Maintainer | DNS & SSL/TLS & CDN Enthusiast"
+
 titleSeparator = " - "
 
 [languages]
 
-[languages.zh-Hans]
+[languages.zh-hans]
 
-languageName = "中文(简体)"
+languageName = "中文（简体）"
+UseLanguageCode = "zh-Hans"
+title = "晨清露澄"
+tagline = "一些有用没用的东西"
+icpLicense = "粤ICP备19081223号"
 
-[languages.zh-Hans.menu]
+[languages.zh-hans.menu]
 
-[[languages.zh-Hans.menu.main]]
+[[languages.zh-hans.menu.main]]
 name = "English"
 url  = "/en/"
 weight = 4
@@ -31,10 +32,12 @@ weight = 4
 [languages.en]
 
 languageName = "English"
+title = "Freespace"
+tagline = "by Bohan Yang"
 
 [languages.en.menu]
 
 [[languages.en.menu.main]]
-name = "中文(简体)"
+name = "中文（简体）"
 url  = "/"
 weight = 4
