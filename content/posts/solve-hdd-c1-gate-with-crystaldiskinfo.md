@@ -5,8 +5,6 @@ draft: false
 categories: ["experience"]
 tags: ["hdd", "crystaldiskinfo"]
 keywords: ["硬盘", "C1门", "CrystalDiskInfo"]
-aliases:
-    - /archives/2018/02/21/solve-hdd-c1-gate-with-crystaldiskinfo/
 ---
 
 ### 起因
