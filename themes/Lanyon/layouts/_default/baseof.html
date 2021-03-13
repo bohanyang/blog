@@ -27,7 +27,7 @@
     
     {{ partialCached "css.html" (dict "files" (slice "assets/css/poole" "assets/css/lanyon" "assets/css/syntax") "assetsCdn" (.Site.Params.assetsCDN) "jsDelivr" (.Site.Params.jsDelivr)) }}
 
-    <link rel="stylesheet" href="{{ .Site.Params.GoogleFonts | default "https://fonts.googleapis.com/css" }}?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="{{ .Site.Params.GoogleFonts | default "https://fonts.googleapis.com/css" }}?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
     {{/*
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ relURL "assets/apple-touch-icon-precomposed.png" }}">
