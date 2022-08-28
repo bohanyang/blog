@@ -20,7 +20,7 @@ languageName = "中文（简体）"
 useLanguageCode = "zh-Hans"
 title = "晨清露澄"
 tagline = "一些有用没用的东西"
-icpLicense = "粤ICP备19081223号"
+#icpLicense = ""
 
 [languages.zh-hans.menu]
 
