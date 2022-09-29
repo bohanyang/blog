@@ -5,7 +5,7 @@ hasCJKLanguage = true
 pygmentsUseClasses = true
 
 [permalinks]
-posts = "/:year/:month/:day/:filename/"
+posts = "/:filename/"
 
 [params]
 description = "Modern PHP Developer | Debian VPS Player | Docker Image Maintainer | DNS & SSL/TLS & CDN Enthusiast"
@@ -17,10 +17,8 @@ titleSeparator = " - "
 [languages.zh-hans]
 
 languageName = "中文（简体）"
-useLanguageCode = "zh-Hans"
-title = "晨清露澄"
-tagline = "一些有用没用的东西"
-#icpLicense = ""
+title = "Bohan Yang"
+tagline = "a.k.a. Brent"
 
 [languages.zh-hans.menu]
 
@@ -32,8 +30,8 @@ weight = 4
 [languages.en]
 
 languageName = "English"
-title = "Freespace"
-tagline = "by Bohan Yang"
+title = "Bohan Yang"
+tagline = "a.k.a. Brent"
 
 [languages.en.menu]
 

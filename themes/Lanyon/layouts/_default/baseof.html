@@ -1,11 +1,7 @@
 <!DOCTYPE html>
-{{ if .Site.Params.UseLanguageCode -}}
-  <html{{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
-{{- else -}}
-  <html lang="{{ .Site.Language.Lang }}">
-{{- end }}
+<html lang="{{ .Site.Language.Lang }}">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,11 +27,11 @@
 
     {{/*
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ relURL "assets/apple-touch-icon-precomposed.png" }}">
-    <link rel="shortcut icon" href="{{ relURL "assets/favicon.ico" }}">
+    <link rel="icon" href="{{ relURL "assets/favicon.jpg" }}">
     */}}
 
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ partial "asset.html" (dict "file" "assets/apple-touch-icon-precomposed.png" "assetsCdn" (.Site.Params.assetsCdn) "jsDelivr" (.Site.Params.jsDelivr)) }}">
-    <link rel="shortcut icon" href="{{ partial "asset.html" (dict "file" "assets/favicon.ico" "assetsCdn" (.Site.Params.assetsCdn) "jsDelivr" (.Site.Params.jsDelivr)) }}">
+    <link rel="icon" href="{{ partial "asset.html" (dict "file" "assets/favicon.jpg" "assetsCdn" (.Site.Params.assetsCdn) "jsDelivr" (.Site.Params.jsDelivr)) }}">
     
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ relURL "index.xml" }}">
   </head>
